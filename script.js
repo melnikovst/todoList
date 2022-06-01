@@ -25,6 +25,7 @@ const editTask = el => {
             };
         });
     });
+    
     todoEl.querySelector('.list__item-add-button').addEventListener('click', done);
     return todoEl;
 };
@@ -39,8 +40,8 @@ const renderText = el => {
     const addAnimation = (renderedText) => {
         renderedText.classList.add('todo__add-animation');
     };
-    addAnimation(renderedText);
     todosContainer.prepend(renderedText);
+    addAnimation(renderedText);
 };
 
 const addStr = (e) => {
