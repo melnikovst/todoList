@@ -1,5 +1,19 @@
 @import url(./fonts/Inter.css);
 
+
+@keyframes delete {
+    from {
+        transform: translate(0);
+        opacity: 1;
+        display: flex;
+    }
+    to {
+        transform: translate(-300px);
+        opacity: 0;
+        display: none;
+    }
+}
+
 * {
     background-color: #000;
     margin: 0;
@@ -122,6 +136,11 @@
     opacity: 0.3;
 }
 
-.input__btn_disabled {
+.form__button-add:disabled {
     background-color: mediumslateblue;
+    opacity: 0.2;
+}
+
+.todo__deleting-animation {
+    animation: delete 1s ease-in-out 0s 1 normal forwards;
 }
