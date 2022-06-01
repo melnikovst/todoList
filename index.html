@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple ToDo list</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body class="main">
+    <div class="todo-inner">
+        <header class="header">
+            <h1 class="header__title">TODO LIST</h1>
+        </header>
+        <main class="content">
+            <form name="todo-form" class="list__form">
+                <input type="text" id="add_input" required class="add__input" minlength="2" placeholder="Add a business...">
+                <button type="submit" class="form__button-add input__btn_disabled">Add</button>
+            </form>
+            <ul class="list">
+            </ul>
+        </main>
+        <template class="list__template">
+            <li class="list__item">
+                <p class="list__item-text"></p>
+                <div class="buttons__wrapper">
+                    <button class="list__item-button list__item-delete-button"></button>
+                    <button class="list__item-button list__item-add-button"></button>
+                </div>
+            </li>
+        </template>
+    </div>
+    <script src="./items.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
