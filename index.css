@@ -18,8 +18,9 @@
 }
 
 .header__title {
-    font-size: 72px;
+    font-size: 55px;
     color: #fff;
+    text-align: center;
 }
 
 .content {
