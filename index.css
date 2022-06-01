@@ -51,7 +51,7 @@
     border-radius: 10px;
     justify-content: center;
     position: relative;
-    transition: all 1.5s ease-in-out;
+    transition: all 1.1s ease-in-out;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -151,5 +151,5 @@
 
 .todo__deleting-animation {
     opacity: 0;
-    transform: translate(-500px);
+    transform: translate(-1500px);
 }
