@@ -1,16 +1,12 @@
 @import url(./fonts/Inter.css);
 
 
-@keyframes delete {
+@keyframes add {
     from {
-        transform: translate(0);
-        opacity: 1;
-        display: flex;
+        opacity: 0;
     }
     to {
-        transform: translate(-300px);
-        opacity: 0;
-        display: none;
+        opacity: 1;
     }
 }
 
@@ -54,6 +50,9 @@
     border-radius: 10px;
     justify-content: center;
     position: relative;
+    transition: all 1s ease;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .add__input {
@@ -77,6 +76,10 @@
     text-align: center;
     position: relative;
     display: block;
+    max-width: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .list__item-text_done {
@@ -129,7 +132,6 @@
     color: #fff;
     padding: 5px 6px;
     background-color: purple;
-    transition: all ease-in-out .2s;
 }
 
 .form__button-add:hover {
@@ -142,5 +144,10 @@
 }
 
 .todo__deleting-animation {
-    animation: delete 1s ease-in-out 0s 1 normal forwards;
+    opacity: 0;
+    transform: translate(-300px);
+} 
+
+.todo__add-animation {
+    animation: add 2s ease 0s 1 normal forwards;
 }

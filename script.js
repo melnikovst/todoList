@@ -5,41 +5,50 @@ const addString = document.querySelector('.form__button-add');
 const form = document.querySelector('.list__form');
 const formInput = document.querySelector('.add__input');
 
-const editDelo = el => {
+const editTask = el => {
     const todoItem = todoTemplate.content;
     const todoEl = todoItem.querySelector('.list__item').cloneNode(true);
     const todoText = todoEl.querySelector('.list__item-text');
     todoText.textContent = el;
-    todoEl.querySelector('.list__item-delete-button').addEventListener('click', animation);
+    todoEl.querySelector('.list__item-delete-button').addEventListener('click', (evt) => {
+        const item = evt.target.closest('.list__item');
+        const remove = () => {
+            item.remove();
+        };
+        const translate = () => {
+            item.classList.add('todo__deleting-animation');
+        };
+        translate();
+        item.addEventListener('transitionend', () => {
+            if (item.classList.contains('todo__deleting-animation') === true) {
+                remove(item);
+            };
+        });
+    });
     todoEl.querySelector('.list__item-add-button').addEventListener('click', done);
     return todoEl;
-}
+};
 
 const done = evt => {
     const x = evt.target.closest('.list__item');
     x.classList.toggle('list__item-text_done');
-}
-
-const animation = evt => {
-    const deleted = evt.target.closest('.list__item');
-    deleted.classList.add('todo__deleting-animation');
-    const x = () => {
-        deleted.style.display = 'none';
-    };
-    setTimeout(x, 700);
-}
+};
 
 const renderText = el => {
-    const renderedText = editDelo(el);
+    const renderedText = editTask(el);
+    const addAnimation = (renderedText) => {
+        renderedText.classList.add('todo__add-animation');
+    };
+    addAnimation(renderedText);
     todosContainer.prepend(renderedText);
-}
+};
 
-function addStr(e) {
+const addStr = (e) => {
     e.preventDefault();
     const text = formInput.value;
     renderText(text);
     form.reset();
-}
+};
 
 todos.forEach((el) => {
     renderText(el);
