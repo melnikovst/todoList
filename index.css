@@ -70,7 +70,7 @@
 }
 
 .list__item-delete-button {
-    background-image: url(../mesto/images/Group.png);
+    background-image: url(./images/Group.png);
     background-size: 10px;
     background-repeat: no-repeat;
     background-position: center;
