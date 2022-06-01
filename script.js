@@ -40,7 +40,7 @@ const renderText = el => {
     const addAnimation = (renderedText) => {
         renderedText.classList.add('todo__add-animation');
     };
-    todosContainer.prepend(renderedText);
+    todosContainer.append(renderedText);
     addAnimation(renderedText);
 };
 
