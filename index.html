@@ -15,13 +15,21 @@
             <h1 class="header__title">TODO LIST</h1>
         </header>
         <main class="content">
-            <form name="todo-form" class="list__form">
-                <input type="text" id="add_input" required class="add__input" minlength="2" placeholder="Add a task..." value="">
-                <button type="submit"  class="form__button-add input__btn_disabled" disabled>Add</button>
+            <form name="todo-form" class="list__form" novalidate>
+                <span id="add-input-error" class="error"></span>
+                <input type="text" id="add-input" required class="add__input" minlength="4" maxlength="18"
+                    placeholder="Add a task..." value="">
+                <button type="submit" class="form__button-add input__btn_disabled" disabled>Add</button>
             </form>
             <ul class="list">
+                <p class="change">Нажмите, чтобы редактировать...</p>
             </ul>
         </main>
+        <div class="visability">
+            <button class="close-button">ЗАКРЫТЬ</button>
+            <input type="text" class="change__input" placeholder="редактировать">
+            <button type="submit" class="input__button">SAVE</button>
+        </div>
         <template class="list__template">
             <li class="list__item">
                 <p class="list__item-text"></p>
