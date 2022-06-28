@@ -10,7 +10,6 @@ const changeBtn = document.querySelector('.change-button');
 const editInput = document.querySelector('.change__input');
 const inputBtn = document.querySelector('.input__button');
 const changingSpan = document.querySelector('.change');
-const closeBtn = changingInput.querySelector('.close-button');
 
 const translateItem = (evt) => {
     const item = evt.target.closest('.list__item');
@@ -34,33 +33,11 @@ const editTask = el => {
     const todoItem = todoTemplate.content;
     const todoEl = todoItem.querySelector('.list__item').cloneNode(true);
     const todoText = todoEl.querySelector('.list__item-text');
-    const correctTexts = Array.from(todoEl.querySelectorAll('.list__item-text'));
     todoText.textContent = el;
     todoEl.querySelector('.list__item-delete-button').addEventListener('click', setListener);
     todoEl.querySelector('.list__item-add-button').addEventListener('click', done);
-    correctTexts.forEach(x => {
-        x.addEventListener('mouseover', openAdvice);
-        x.addEventListener('mouseout', hideAdvice);
-    });
-    correctTexts.forEach(item => {
-        item.addEventListener('click', () => {
-            document.querySelector('.visability').classList.add('change__input_opened');
-        })
-    })
     return todoEl;
 };
-
-const openAdvice = () => {
-    changingSpan.classList.add('change_opened');
-}
-
-const hideAdvice = () => {
-    changingSpan.classList.remove('change_opened');
-}
-
-const closeInput = () => {
-    changingInput.classList.remove('change__input_opened');
-}
 
 const done = (evt) => {
     const x = evt.target.closest('.list__item');
@@ -91,7 +68,7 @@ const addStr = (evt) => {
 };
 
 const showError = (error) => {
-    error.textContent = 'Больше символов, блэт!'
+    error.textContent = '4 символа минимум :)'
     error.style.color = 'red';
     error.style.border = '2px solid red';
 };
@@ -102,7 +79,7 @@ const hideError = (error) => {
 };
 
 const successfulValidation = (error) => {
-    error.textContent = 'Всё хорошо, друг, добавляй!';
+    error.textContent = 'Валидация пройдена, добавляй!';
     error.style.color = 'green';
     error.style.border = '2px solid green';
 };
@@ -122,6 +99,3 @@ const isValid = () => {
 todos.forEach(el => renderText(el));
 formInput.addEventListener('input', isValid);
 form.addEventListener('submit', addStr);
-closeBtn.addEventListener('click', closeInput);
-
-/* inputBtn.addEventListener('click', changeInputs); */
